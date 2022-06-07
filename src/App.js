@@ -15,19 +15,27 @@ class App extends Component{
         }
     }
 
-    onSearchChange(e){
-        console.log(e)
+    onSearchChange = (e) => {
+        //must make arrow function because this value can change. In this case, the value of this was pointing toward the input
+        // console.log(e.target.value)
+        this.setState({searchfield: e.target.value})
     }
 
 
 
 
     render(){
+        const filteredRobots = this.state.robots.filter(robot => {
+            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+            // return robot names that match search input 
+
+        })
+        // console.log(filteredRobots)
         return (
             <div className='tc'>
                 <h1>RoboFriends</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
-                <CardList robots={robots}/>
+                <CardList robots={filteredRobots}/>
             </div>
 
         )
