@@ -6,9 +6,6 @@ import { robots } from './robots';
 // state is an object; changeable;
 //props are things that come out of state.
 
-
-
-
 class App extends Component{
     constructor(){
         super()
@@ -17,11 +14,19 @@ class App extends Component{
             searchfield: ''
         }
     }
+
+    onSearchChange(e){
+        console.log(e)
+    }
+
+
+
+
     render(){
         return (
             <div className='tc'>
                 <h1>RoboFriends</h1>
-                <SearchBox/>
+                <SearchBox searchChange={this.onSearchChange}/>
                 <CardList robots={robots}/>
             </div>
 
