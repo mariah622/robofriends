@@ -6,6 +6,7 @@ const CardList = ({robots}) => {
 
     const cardComponent = robots.map((r, i) => {
         return <Card 
+        // each child in array needs unique key; 
             key={i} 
             id={robots[i].id} 
             name={robots[i].name} 
