@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './Card'
+import Card from'./Card'
 
 const CardList = ({robots}) => {
     // can be written with props or simply be destructured
